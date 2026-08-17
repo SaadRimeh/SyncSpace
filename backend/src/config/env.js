@@ -8,6 +8,7 @@ const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
 
   // PostgreSQL Config
+  DATABASE_URL: z.string().optional(),
   PGHOST: z.string().default('localhost'),
   PGPORT: z.string().default('5432').transform(Number),
   PGDATABASE: z.string().default('syncspace_db'),

@@ -9,6 +9,12 @@ import { notFoundHandler, errorHandler } from './middleware/errorHandler.js';
 import healthRoutes from './routes/healthRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import userRoutes from './routes/userRoutes.js';
+import synapseRoutes from './routes/synapseRoutes.js';
+import taskRoutes from './routes/taskRoutes.js';
+import habitRoutes from './routes/habitRoutes.js';
+import categoryRoutes from './routes/categoryRoutes.js';
+import transactionRoutes from './routes/transactionRoutes.js';
+import canvasRoutes from './routes/canvasRoutes.js';
 
 const app = express();
 
@@ -53,6 +59,12 @@ app.get('/', (req, res) => {
 app.use('/api/health', healthRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/synapses', synapseRoutes);
+app.use('/api/tasks', taskRoutes);
+app.use('/api/habits', habitRoutes);
+app.use('/api/categories', categoryRoutes);
+app.use('/api/transactions', transactionRoutes);
+app.use('/api/canvas', canvasRoutes);
 
 // Catch-all 404 & Global Error Handler
 app.use(notFoundHandler);
