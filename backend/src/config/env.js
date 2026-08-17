@@ -26,6 +26,11 @@ const envSchema = z.object({
   // Rate Limiting
   RATE_LIMIT_WINDOW_MS: z.string().default('900000').transform(Number),
   RATE_LIMIT_MAX_REQUESTS: z.string().default('1000').transform(Number),
+
+  // Auth / JWT
+  JWT_SECRET: z.string().min(16, 'JWT_SECRET must be at least 16 characters').default('syncspace-super-secret-jwt-key-change-in-prod'),
+  JWT_EXPIRES_IN: z.string().default('7d'),
+  BCRYPT_ROUNDS: z.string().default('10').transform(Number),
 });
 
 const parsed = envSchema.safeParse(process.env);
